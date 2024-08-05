@@ -1,5 +1,6 @@
-let number = 0;
-function increase() {
-  number++;
-  document.getElementById("number").innerText = number;
+let num = 0;
+
+function increaseNumber() {
+  num++;
+  document.getElementById("numberDisplay") = num
 }
