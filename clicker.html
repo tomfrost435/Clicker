@@ -3,19 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Clicker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container-row">
-      <button class="click button" onclick="increaseNumber()">Click</button>
+      <button class="click button" onclick="increaseCurrency()">Click</button>
       <div class="display" id="numberDisplay">0</div>
     </div>
     <div class="container-column">
-      <button class="upgrade">Cursor</button>
-      <button class="upgrade">Grandma</button>
-      <button class="upgrade">Farm</button>
+      <button class="upgrade" id="cursor" onclick="buyUpgrade('cursor')">
+        Cursor
+        <div class="upgradeCount" id="cursorCount">0</div>
+      </button>
+      <button class="upgrade" id="grandma" onclick="buyUpgrade('grandma')">
+        Grandma
+        <div class="upgradeCount" id="grandmaCount">0</div>
+      </button>
+      <button class="upgrade" id="farm" onclick="buyUpgrade('farm')">
+        Farm
+        <div class="upgradeCount" id="farmCount">0</div>
+      </button>
     </div>
     <script src="script.js"></script>
   </body>
