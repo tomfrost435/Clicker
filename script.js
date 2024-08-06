@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("cookie-button")
     .addEventListener("click", cookiesClick);
 
-  const upgradeButtons = document.querySelectorAll(".upgrade-box button");
-  upgradeButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      buyUpgrade(button.id);
+  const upgrades = document.querySelectorAll(".upgrade");
+  upgrades.forEach((div) => {
+    div.addEventListener("click", function () {
+      buyUpgrade(div.id);
     });
   });
 
