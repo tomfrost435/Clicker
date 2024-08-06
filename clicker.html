@@ -2,29 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Cookie Clicker Idle Game" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clicker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container-row">
-      <button class="click button" onclick="increaseCurrency()">Click</button>
-      <div class="display" id="numberDisplay">0</div>
-    </div>
-    <div class="container-column">
-      <button class="upgrade" id="cursor" onclick="buyUpgrade('cursor')">
-        Cursor
-        <div class="upgradeCount" id="cursorCount">0</div>
+    <section id="canvas-left">
+      <div id="cookie-info">
+        <span id="cookie-amount">0</span>
+        <span id="cookie-gain">per second: 0</span>
+      </div>
+      <button id="cookie-button" aria-label="Click to gain cookies">
+        Cookie
       </button>
-      <button class="upgrade" id="grandma" onclick="buyUpgrade('grandma')">
-        Grandma
-        <div class="upgradeCount" id="grandmaCount">0</div>
-      </button>
-      <button class="upgrade" id="farm" onclick="buyUpgrade('farm')">
-        Farm
-        <div class="upgradeCount" id="farmCount">0</div>
-      </button>
-    </div>
+    </section>
+    <section id="canvas-middle"></section>
+    <section id="canvas-right">
+      <div class="upgrade-box">
+        <button id="cursor" aria-label="Upgrade cursor">Cursor</button>
+        <span id="cursor-cost">10</span>
+        <span id="cursor-amount">0</span>
+      </div>
+      <div class="upgrade-box">
+        <button id="grandma" aria-label="Upgrade grandma">Grandma</button>
+        <span id="grandma-cost">50</span>
+        <span id="grandma-amount">0</span>
+      </div>
+      <div class="upgrade-box">
+        <button id="farm" aria-label="Upgrade farm">Farm</button>
+        <span id="farm-cost">100</span>
+        <span id="farm-amount">0</span>
+      </div>
+      <div class="upgrade-box">
+        <button id="mine" aria-label="Upgrade mine">Mine</button>
+        <span id="mine-cost">200</span>
+        <span id="mine-amount">0</span>
+      </div>
+      <div class="upgrade-box">
+        <button id="factory" aria-label="Upgrade factory">Factory</button>
+        <span id="factory-cost">500</span>
+        <span id="factory-amount">0</span>
+      </div>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>

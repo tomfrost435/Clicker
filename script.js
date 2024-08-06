@@ -1,28 +1,59 @@
-let currency = 0;
-let cps = 0;
-const upgrades = {
-  cursor: { power: 1, count: 0 },
-  grandma: { power: 5, count: 0 },
-  farm: { power: 10, count: 0 },
+let cookiesAmount = 0;
+let cookiesGain = 0;
+let clickPower = 1;
+let upgradeDict = {
+  cursor: { power: 1, cost: 10, amount: 0 },
+  grandma: { power: 5, cost: 50, amount: 0 },
+  farm: { power: 10, cost: 100, amount: 0 },
+  mine: { power: 25, cost: 200, amount: 0 },
+  factory: { power: 50, cost: 500, amount: 0 },
 };
 
-function increaseCurrency() {
-  currency++;
-  document.getElementById("numberDisplay").innerText = Math.round(currency);
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .getElementById("cookie-button")
+    .addEventListener("click", cookiesClick);
+
+  const upgradeButtons = document.querySelectorAll(".upgrade-box button");
+  upgradeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      buyUpgrade(button.id);
+    });
+  });
+
+  updateCookies();
+  document.getElementById(
+    "cookie-gain"
+  ).innerText = `per second: ${cookiesGain}`;
+});
+
+function cookiesClick() {
+  cookiesAmount += clickPower;
+  updateCookies();
 }
 
 function buyUpgrade(upgradeId) {
-  const upgrade = upgrades[upgradeId];
-  if (upgrade) {
-    upgrade.count++;
-    cps += upgrade.power;
-    document.getElementById(`${upgradeId}Count`).innerText = upgrade.count;
+  let upgrade = upgradeDict[upgradeId];
+  if (cookiesAmount >= upgrade.cost) {
+    cookiesAmount -= upgrade.cost;
+    cookiesGain += upgrade.power;
+    upgrade.amount += 1;
+    upgrade.cost = Math.round(upgrade.cost * 1.15);
+    updateCookies();
+    document.getElementById(
+      "cookie-gain"
+    ).innerText = `per second: ${cookiesGain}`;
+    document.getElementById(`${upgradeId}-amount`).innerText = upgrade.amount;
+    document.getElementById(`${upgradeId}-cost`).innerText = upgrade.cost;
   }
 }
 
-function updateCurrency() {
-  currency += cps;
-  document.getElementById("numberDisplay").innerText = Math.round(currency);
+function updateCookies() {
+  document.getElementById("cookie-amount").innerText =
+    Math.round(cookiesAmount);
 }
 
-setInterval(updateCurrency, 1000);
+setInterval(() => {
+  cookiesAmount += cookiesGain;
+  updateCookies();
+}, 1000);

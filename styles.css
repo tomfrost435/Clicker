@@ -1,57 +1,88 @@
-:root {
-  --element-color: darkgray;
-  --background-color: rgb(15, 15, 15);
+html {
+  --bg-color: rgb(25, 25, 25);
+  --element-color: rgb(50, 50, 50);
+  --text-color: rgb(150, 150, 150);
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--background-color);
-}
-
-.container-row,
-.container-column {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+}
+
+/* for debugging only */
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16pt;
+  outline: 1px solid rgb(184, 145, 255);
+}
+
+#canvas-left {
+  background: #d90012;
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-}
-
-.container-column {
   flex-direction: column;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
-.button,
-.display,
-.upgrade {
+#cookie-info {
+  background-color: var(--element-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  top: 20%;
+  height: 6%;
+}
+
+#cookie-amount {
+  flex: 2;
+  font-size: 20pt;
+}
+
+#cookie-gain {
+  flex: 1;
+  font-size: 10pt;
+}
+
+#cookie-button {
+  --cookie-size: 240px;
+  height: var(--cookie-size);
+  width: var(--cookie-size);
+  background-color: var(--element-color);
+  border: 0;
+  border-radius: 50%;
+  color: var(--text-color);
+  margin-bottom: auto;
+  cursor: pointer;
+}
+
+#canvas-middle {
+  background-color: #001489;
+  flex: 3;
+}
+
+#canvas-right {
+  background-color: #ff9e1b;
+  flex: 1;
+}
+.upgrade-box {
   background-color: var(--element-color);
 }
 
-.button {
-  width: 50px;
-  height: 20px;
+.upgrade-box button {
+  cursor: pointer;
+  width: 100%;
   border: 0;
+  background-color: var(--element-color);
+  color: var(--text-color);
 }
 
-.display {
-  width: 150px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.upgrade {
-  border: 0;
-  width: 210px;
-  height: 20px;
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-}
-
-.upgradeCount {
-  text-align: right;
-  margin-left: auto;
+.upgrade-box span {
 }
