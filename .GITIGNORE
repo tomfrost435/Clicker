@@ -1,1 +1,4 @@
-tsconfig.json
+.gitignore
+*.json
+*.mjs
+node_modules

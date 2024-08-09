@@ -1,12 +1,11 @@
 var cookiesAmount = 0;
 var cookiesGain = 0;
-var clickPower = 1;
 var upgradeDict = {
-    cursor: { power: 1, cost: 10, amount: 0 },
-    grandma: { power: 5, cost: 50, amount: 0 },
-    farm: { power: 10, cost: 100, amount: 0 },
-    mine: { power: 25, cost: 200, amount: 0 },
-    factory: { power: 50, cost: 500, amount: 0 },
+    cursor: { power: 0.1, cost: 15, amount: 0 },
+    grandma: { power: 1, cost: 100, amount: 0 },
+    farm: { power: 8, cost: 1100, amount: 0 },
+    mine: { power: 47, cost: 1200, amount: 0 },
+    factory: { power: 260, cost: 130000, amount: 0 },
 };
 function l(id) {
     return document.getElementById(id);
@@ -15,7 +14,7 @@ function updateCookies() {
     l("cookie-amount").innerText = "".concat(Math.round(cookiesAmount));
 }
 function cookiesClick() {
-    cookiesAmount += clickPower;
+    cookiesAmount += 1;
     updateCookies();
 }
 function buyUpgrade(upgradeId) {
@@ -35,7 +34,7 @@ function main() {
     document.addEventListener("DOMContentLoaded", function () {
         var bakeryName = l("bakery-name");
         bakeryName.addEventListener("click", function () {
-            l("bakery-name-popup").style.display = "initial";
+            l("bakery-name-popup").style.display = "flex";
         });
         var cookieButton = l("cookie-button");
         cookieButton.addEventListener("click", cookiesClick);
@@ -57,5 +56,4 @@ function main() {
         updateCookies();
     }, 1000);
 }
-l("bakery-name-popup").style.display = "none";
 main();

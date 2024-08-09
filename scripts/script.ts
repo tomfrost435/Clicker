@@ -1,6 +1,5 @@
 let cookiesAmount: number = 0;
 let cookiesGain: number = 0;
-let clickPower: number = 1;
 
 interface Upgrade {
   power: number;
@@ -9,11 +8,11 @@ interface Upgrade {
 }
 
 const upgradeDict: { [key: string]: Upgrade } = {
-  cursor: { power: 1, cost: 10, amount: 0 },
-  grandma: { power: 5, cost: 50, amount: 0 },
-  farm: { power: 10, cost: 100, amount: 0 },
-  mine: { power: 25, cost: 200, amount: 0 },
-  factory: { power: 50, cost: 500, amount: 0 },
+  cursor: { power: 0.1, cost: 15, amount: 0 },
+  grandma: { power: 1, cost: 100, amount: 0 },
+  farm: { power: 8, cost: 1100, amount: 0 },
+  mine: { power: 47, cost: 1200, amount: 0 },
+  factory: { power: 260, cost: 130000, amount: 0 },
 };
 
 function l(id: string): HTMLElement {
@@ -25,7 +24,7 @@ function updateCookies(): void {
 }
 
 function cookiesClick(): void {
-  cookiesAmount += clickPower;
+  cookiesAmount += 1;
   updateCookies();
 }
 
@@ -47,7 +46,7 @@ function main(): void {
   document.addEventListener("DOMContentLoaded", () => {
     const bakeryName = l("bakery-name");
     bakeryName.addEventListener("click", () => {
-      l("bakery-name-popup").style.display = "initial";
+      l("bakery-name-popup").style.display = "flex";
     });
 
     const cookieButton = l("cookie-button");
@@ -70,7 +69,5 @@ function main(): void {
     updateCookies();
   }, 1000);
 }
-
-l("bakery-name-popup").style.display = "none";
 
 main();
