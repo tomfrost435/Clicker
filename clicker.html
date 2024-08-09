@@ -4,42 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clicker</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section id="canvas-left">
-      <div id="cookie-info">
+      <div class="cookie-text clickable">Default's Bakery</div>
+      <div class="cookie-text">
         <span id="cookie-amount">0</span>
         <span id="cookie-gain">per second: 0</span>
       </div>
-      <img src="PerfectCookie.png" draggable="false" id="cookie-button" />
+      <img
+        src="images/PerfectCookie.png"
+        draggable="false"
+        class="clickable"
+        id="cookie-button"
+      />
     </section>
 
     <section id="canvas-middle"></section>
 
     <section id="canvas-right">
-      <div class="upgrade" id="cursor">
+      <div class="upgrade clickable" id="cursor">
         Cursor
         <span id="cursor-cost">10</span>
         <span id="cursor-amount">0</span>
       </div>
-      <div class="upgrade" id="grandma">
+      <div class="upgrade clickable" id="grandma">
         Grandma
         <span id="grandma-cost">50</span>
         <span id="grandma-amount">0</span>
       </div>
-      <div class="upgrade" id="farm">
+      <div class="upgrade clickable" id="farm">
         Farm
         <span id="farm-cost">100</span>
         <span id="farm-amount">0</span>
       </div>
-      <div class="upgrade" id="mine">
+      <div class="upgrade clickable" id="mine">
         Mine
         <span id="mine-cost">200</span>
         <span id="mine-amount">0</span>
       </div>
-      <div class="upgrade" id="factory">
+      <div class="upgrade clickable" id="factory">
         Factory
         <span id="factory-cost">500</span>
         <span id="factory-amount">0</span>

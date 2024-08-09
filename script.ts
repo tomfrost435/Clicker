@@ -16,23 +16,19 @@ const upgradeDict: { [key: string]: Upgrade } = {
   factory: { power: 50, cost: 500, amount: 0 },
 };
 
-// Utility function to get element by ID
 function l(id: string): HTMLElement {
   return document.getElementById(id)!;
 }
 
-// Function to update the displayed cookie amount
 function updateCookies(): void {
   l("cookie-amount").innerText = `${Math.round(cookiesAmount)}`;
 }
 
-// Function to handle cookie clicks
 function cookiesClick(): void {
   cookiesAmount += clickPower;
   updateCookies();
 }
 
-// Function to handle buying upgrades
 function buyUpgrade(upgradeId: string): void {
   const upgrade = upgradeDict[upgradeId];
   if (cookiesAmount >= upgrade.cost) {
@@ -47,7 +43,6 @@ function buyUpgrade(upgradeId: string): void {
   }
 }
 
-// Main function to initialize the application
 function main(): void {
   document.addEventListener("DOMContentLoaded", () => {
     const cookieButton = l("cookie-button");
@@ -71,5 +66,4 @@ function main(): void {
   }, 1000);
 }
 
-// Run the main function
 main();

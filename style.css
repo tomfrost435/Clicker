@@ -6,6 +6,7 @@ html {
   --element-color: #282828;
   --focused-color: #3f3f3f;
   --text-color: #8b8b8b;
+  /* all: unset; */
 }
 
 body {
@@ -27,9 +28,10 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #346b8f;
+  gap: 10px;
 }
 
-#cookie-info {
+.cookie-text {
   background-color: #000000b0;
   width: 100%;
   display: flex;
@@ -49,7 +51,6 @@ body {
 #cookie-button {
   width: 256px;
   height: 256px;
-  cursor: pointer;
 }
 
 #canvas-middle {
@@ -64,9 +65,7 @@ body {
 
 .upgrade {
   background-color: var(--element-color);
-  cursor: pointer;
   z-index: 1;
-  user-select: none;
   position: relative;
   height: 2.5rem;
 }
@@ -76,7 +75,7 @@ body {
 }
 
 .upgrade span:nth-child(1) {
-  font-size: 12px;
+  font-size: 10pt;
   position: absolute;
   left: 0%;
   bottom: 0%;
@@ -87,4 +86,8 @@ body {
   position: absolute;
   right: 0%;
   height: 100%;
+}
+
+.clickable {
+  cursor: pointer;
 }
