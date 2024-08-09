@@ -45,6 +45,11 @@ function buyUpgrade(upgradeId: string): void {
 
 function main(): void {
   document.addEventListener("DOMContentLoaded", () => {
+    const bakeryName = l("bakery-name");
+    bakeryName.addEventListener("click", () => {
+      l("bakery-name-popup").style.display = "initial";
+    });
+
     const cookieButton = l("cookie-button");
     cookieButton.addEventListener("click", cookiesClick);
 
@@ -65,5 +70,7 @@ function main(): void {
     updateCookies();
   }, 1000);
 }
+
+l("bakery-name-popup").style.display = "none";
 
 main();

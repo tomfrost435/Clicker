@@ -1,3 +1,35 @@
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* CSS BASE */
+
 html {
   --font-size: 16pt;
   --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -5,8 +37,7 @@ html {
   --bg-color: #121212;
   --element-color: #282828;
   --focused-color: #3f3f3f;
-  --text-color: #8b8b8b;
-  /* all: unset; */
+  --text-color: #cecece;
 }
 
 body {
@@ -14,10 +45,34 @@ body {
   color: var(--text-color);
   font-size: var(--font-size);
   font-family: var(--font-family);
+  text-shadow: 0px 1px #000000aa;
   display: flex;
   width: 100vw;
   height: 100vh;
   user-select: none;
+  text-align: left;
+  text-wrap: nowrap;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  gap: 10px;
+  background-color: var(--element-color);
+  padding: 10px 10px 10px 10px;
+}
+
+#bakery-name-input {
+  background-color: var(--focused-color);
+  border: none;
+  text-align: center;
 }
 
 #canvas-left {
@@ -29,9 +84,25 @@ body {
   justify-content: center;
   background-color: #346b8f;
   gap: 10px;
+  max-width: 25%;
 }
 
-.cookie-text {
+#bakery-name {
+  width: clamp(auto, 50%, 75%);
+  border-radius: 8px;
+  height: 1.5em;
+  background-color: #000000b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+}
+
+#bakery-name:hover {
+  text-shadow: 0px 0px 5px #ffffffff;
+}
+
+#cookie-info {
   background-color: #000000b0;
   width: 100%;
   display: flex;
@@ -51,6 +122,7 @@ body {
 #cookie-button {
   width: 256px;
   height: 256px;
+  object-fit: scale-down;
 }
 
 #canvas-middle {
@@ -59,7 +131,7 @@ body {
 }
 
 #canvas-right {
-  flex: 1;
+  width: 10%;
   position: relative;
 }
 
@@ -86,6 +158,7 @@ body {
   position: absolute;
   right: 0%;
   height: 100%;
+  text-align: right;
 }
 
 .clickable {

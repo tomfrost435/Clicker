@@ -6,13 +6,17 @@
     <title>Clicker</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
+    <div class="popup" id="bakery-name-popup">
+      Your bakery's name: <input type="text" id="bakery-name-input" />
+    </div>
+
     <section id="canvas-left">
-      <div class="cookie-text clickable">Default's Bakery</div>
-      <div class="cookie-text">
+      <div class="clickable" id="bakery-name">Default's Bakery</div>
+      <div id="cookie-info">
         <span id="cookie-amount">0</span>
         <span id="cookie-gain">per second: 0</span>
       </div>
@@ -54,6 +58,6 @@
       </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

@@ -33,6 +33,10 @@ function buyUpgrade(upgradeId) {
 }
 function main() {
     document.addEventListener("DOMContentLoaded", function () {
+        var bakeryName = l("bakery-name");
+        bakeryName.addEventListener("click", function () {
+            l("bakery-name-popup").style.display = "initial";
+        });
         var cookieButton = l("cookie-button");
         cookieButton.addEventListener("click", cookiesClick);
         var upgrades = document.getElementsByClassName("upgrade");
@@ -53,4 +57,5 @@ function main() {
         updateCookies();
     }, 1000);
 }
+l("bakery-name-popup").style.display = "none";
 main();
